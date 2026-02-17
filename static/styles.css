@@ -1,0 +1,103 @@
+.btn,
+button {
+    padding: 15px 30px;
+    margin: 10px;
+    font-size: 18px;
+    background-color: #111;
+    color: #00ffcc;
+    border: 2px solid #00ffcc;
+    cursor: pointer;
+    border-radius: 4px;
+    min-width: 120px;
+    box-sizing: border-box;
+    transition: background 0.2s, color 0.2s;
+}
+
+.btn:hover,
+button:hover {
+    background-color: #00ffcc;
+    color: black;
+}
+body {
+    background-color: black;
+    color: #00ffcc;
+    font-family: monospace;
+    text-align: center;
+}
+
+button {
+    padding: 15px 30px;
+    margin: 10px;
+    font-size: 18px;
+    background-color: #111;
+    color: #00ffcc;
+    border: 2px solid #00ffcc;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #00ffcc;
+    color: black;
+}
+
+pre {
+    text-align: left;
+    display: inline-block;
+    margin-top: 20px;
+}
+/* Responsive styles */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #00ffcc;
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+}
+
+a {
+    display: inline-block;
+    margin-top: 15px;
+    color: #00ffcc;
+    text-decoration: none;
+}
+
+
+@media (max-width: 600px) {
+    body {
+        font-size: 16px;
+        padding: 10px;
+    }
+    .container {
+        padding: 10px;
+        max-width: 100%;
+    }
+    h1, h2 {
+        font-size: 22px;
+    }
+    button, .btn {
+        font-size: 15px;
+        padding: 10px 18px;
+    }
+    input[type="text"] {
+        font-size: 15px;
+        padding: 8px;
+    }
+    pre {
+        font-size: 12px;
+    }
+}
