@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+</body>
+<div class="container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 80vh;">
+    <h1>About</h1>
+    <pre id="logo"></pre>
+    <a href="/" class="btn">Volver al menú</a>
+</div>
+<script>
+    const frames = {{ frames|tojson }};
+    let i = 0;
+    function animarUnaVez() {
+        if (i < frames.length) {
+            document.getElementById("logo").textContent = frames[i];
+            i++;
+        } else {
+            clearInterval(intervalo);
+        }
+    }
+    const intervalo = setInterval(animarUnaVez, 120);
+</script>
+</html>

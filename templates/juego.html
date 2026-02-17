@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Juego</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<script>
+    window.onload = function() {
+        var input = document.querySelector('input[name="respuesta"]');
+        if (input) {
+            input.focus();
+        }
+    };
+</script>
+</body>
+<div class="container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 80vh;">
+    <h1>🎵 Pregunta</h1>
+    <p>¿Cuál es el {{ grado_texto }} de {{ escala }}?</p>
+    <form action="/responder" method="POST" style="display: flex; flex-direction: column; align-items: center;">
+        <input type="text" name="respuesta" required>
+        <div style="display: flex; gap: 15px; margin-top: 10px;">
+            <button type="submit" class="btn">Responder</button>
+            <a href="/" class="btn">Volver al menú</a>
+        </div>
+    </form>
+</div>
+</body>
+</html>

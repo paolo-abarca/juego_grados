@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resultados</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<div class="container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 80vh;">
+    <h1>📊 Resultados</h1>
+    <p>Preguntas realizadas: {{ preguntas }}</p>
+    <p>Aciertos: {{ aciertos }}</p>
+    <p>Fallos: {{ fallos }}</p>
+    <a href="/" class="btn">Volver al menú</a>
+</div>
+</body>
+</html>
