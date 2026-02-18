@@ -1,4 +1,3 @@
-
 from flask import Flask, render_template, request, session, redirect, url_for
 import random
 import time
