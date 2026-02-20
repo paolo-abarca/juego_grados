@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tabla de Posiciones</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .tabla-posiciones {
+            width: 100%;
+            max-width: 500px;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .tabla-posiciones th,
+        .tabla-posiciones td {
+            padding: 10px 16px;
+            border: 1px solid #00ffcc;
+            text-align: center;
+        }
+        .tabla-posiciones th {
+            background-color: #002b22;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .tabla-posiciones tr:nth-child(even) {
+            background-color: #0a1a16;
+        }
+        .tabla-posiciones tr:hover {
+            background-color: #00332a;
+        }
+        .primer-lugar td {
+            color: #ffd700;
+            font-weight: bold;
+        }
+        .medalla {
+            font-size: 20px;
+        }
+        .vacia {
+            color: #555;
+            margin-top: 30px;
+            font-size: 18px;
+        }
+        .subtitulo {
+            color: #00aa88;
+            font-size: 13px;
+            margin-top: 4px;
+        }
+    </style>
+</head>
+<body>
+<div class="container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 80vh;">
+    <h1>🏆 Tabla de Posiciones</h1>
+    <p class="subtitulo">Se reinicia cada día · 1 punto por respuesta correcta</p>
+
+    {% if scores %}
+    <table class="tabla-posiciones">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Jugador</th>
+                <th>Puntos</th>
+                <th>Aciertos</th>
+                <th>Preguntas</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for s in scores %}
+            <tr {% if loop.index == 1 %}class="primer-lugar"{% endif %}>
+                <td>
+                    {% if loop.index == 1 %}<span class="medalla">🥇</span>
+                    {% elif loop.index == 2 %}<span class="medalla">🥈</span>
+                    {% elif loop.index == 3 %}<span class="medalla">🥉</span>
+                    {% else %}{{ loop.index }}{% endif %}
+                </td>
+                <td>{{ s.nombre }}</td>
+                <td>{{ s.score }}</td>
+                <td>{{ s.aciertos }}</td>
+                <td>{{ s.preguntas }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p class="vacia">Todavía no hay puntajes hoy.<br>¡Sé el primero en jugar!</p>
+    {% endif %}
+
+    <a href="/" class="btn" style="margin-top: 30px;">Volver al menú</a>
+</div>
+</body>
+</html>
