@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ingresar Nombre</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<div class="container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 80vh;">
+    <h1>🎹 Juego de Grados Armónicos</h1>
+    <h2>¿Cómo te llamás?</h2>
+    <form action="/nombre" method="POST" style="display: flex; flex-direction: column; align-items: center; gap: 15px; margin-top: 20px;">
+        <input type="text" name="nombre" placeholder="Tu nombre" required autofocus maxlength="30"
+               style="text-align: center; font-size: 20px; padding: 12px; width: 260px;">
+        <button type="submit">Jugar 🎵</button>
+    </form>
+    <a href="/" class="btn" style="margin-top: 20px;">Volver al menú</a>
+</div>
+<script>
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            var form = document.querySelector('form');
+            if (form) form.submit();
+        }
+    });
+</script>
+</body>
+</html>
