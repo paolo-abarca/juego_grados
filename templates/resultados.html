@@ -7,10 +7,18 @@
 <body>
 <div class="container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 80vh;">
     <h1>📊 Resultados</h1>
+    {% if nombre %}
+    <p style="font-size: 20px; margin-bottom: 6px;">Jugador: <strong>{{ nombre }}</strong></p>
+    {% endif %}
+    <p style="font-size: 26px; color: #ffd700; margin: 10px 0;">🏆 {{ score }} puntos</p>
     <p>Preguntas realizadas: {{ preguntas }}</p>
     <p>Aciertos: {{ aciertos }}</p>
     <p>Fallos: {{ fallos }}</p>
-    <a href="/" class="btn">Volver al menú</a>
+    <div style="display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap; justify-content: center;">
+        <a href="/nombre" class="btn">Jugar de nuevo</a>
+        <a href="/tabla" class="btn">Ver tabla 🏆</a>
+        <a href="/" class="btn">Menú principal</a>
+    </div>
 </div>
 </body>
 </html>
